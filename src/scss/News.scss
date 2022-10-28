@@ -1,0 +1,39 @@
+@mixin display {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin font {
+    font-size: calc(18px + (20 - 18) * (100vw - 400px) / (1440 - 400));
+    font-weight: 500;
+    line-height: 24.38px;
+}
+
+.news-wrapper {
+    @include display;
+    gap: 24px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 32px;
+
+    .title-wrapper {
+        @include display;
+        gap: 16px;
+
+        .news-title {
+            font-size: calc(18px + (26 - 18) * (100vw - 400px) / (1440 - 400));
+            font-weight: 700;
+            line-height: 31.69px;
+        }
+
+        .news-subtitle {
+            @include font;
+        }
+    }
+
+    .news-content-wrapper {
+        width: 1076px;
+        @include display;
+        gap: 24px;
+        @include font;
+    }
+}

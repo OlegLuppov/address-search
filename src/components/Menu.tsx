@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { togglerRangeBulean } from '../store/slice'
+import { NavLink } from 'react-router-dom'
 
 import icoHome from '../assets/img/icon/home.svg'
 import icoSearch from '../assets/img/icon/search2.svg'
@@ -28,16 +29,18 @@ export const MenuNav: React.FC = () => {
       <h2 className="nav-title">Menu</h2>
       <ul className="list-nav">
         <li>
-          <button className="home" type="button">
-            {' '}
-            <div
-              className="ico-home"
-              style={{
-                backgroundImage: `url(${icoHome})`,
-              }}
-            ></div>
-            <span>Главная</span>
-          </button>
+          <NavLink to={'/'} className="router">
+            <button className="home" type="button">
+              {' '}
+              <div
+                className="ico-home"
+                style={{
+                  backgroundImage: `url(${icoHome})`,
+                }}
+              ></div>
+              <span>Главная</span>
+            </button>
+          </NavLink>
         </li>
         <li>
           <button type="button">

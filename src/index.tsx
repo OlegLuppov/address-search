@@ -4,6 +4,7 @@ import './scss/container.scss'
 import './scss/App.scss'
 import './scss/Menu.scss'
 import './scss/Header.scss'
+import './scss/News.scss'
 
 import { createRoot } from 'react-dom/client'
 import { Profiler } from 'react'
