@@ -1,0 +1,59 @@
+$display: flex;
+$fontSize: calc(18px + (20 - 18) * (100vw - 400px) / (1440 - 400));
+
+@mixin fontHeader {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 24.38px;
+  color: #FFFFFF;
+}
+
+@mixin sizeIcon {
+  width: 48px;
+  height: 48px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: $display;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #4F27BF;
+  @include fontHeader;
+  padding: 16px 32px 16px 32px;
+
+
+  .logo-wrapper {
+    display: $display ;
+    align-items: center;
+    gap: 24px;
+
+    .logo-item {
+      @include sizeIcon;
+      background-repeat: no-repeat;
+    }
+
+    .title-item {
+      font-size: $fontSize;
+
+    }
+  }
+
+  .initialization-wrapper {
+    display: $display;
+    align-items: center;
+    gap: 16px;
+
+
+    .icon-initialization {
+      @include sizeIcon;
+    }
+
+    .initialization {
+      font-size: $fontSize;
+    }
+  }
+}
