@@ -1,17 +1,25 @@
 import { createSlice,PayloadAction } from '@reduxjs/toolkit'
+import {IAddress} from '../components/ListAddresses'
 
 interface Iinitialstate {
   toggleSettings:boolean,
+  toggleListAddresses:boolean
   settings: string,
   settingsProfile:string,
   settingsManagement:string
+  value:string
+  addresses:IAddress[]
 }
 
 const initialState:Iinitialstate = {
   toggleSettings:true,
+  toggleListAddresses:true,
   settings: 'settings',
   settingsProfile:'settings-profile',
-  settingsManagement:'financial-management'
+  settingsManagement:'financial-management',
+  value:'',
+  addresses:[]
+
 }
 
 
@@ -39,8 +47,11 @@ const mySlices = createSlice({
       state.settingsManagement = 'financial-management'
      }
     },
+    changeValue:(state,action:PayloadAction<string>) => {
+      state.value = action.payload
+    }
  
   },
 })
-export const {togglerRangeBulean} = mySlices.actions
+export const {togglerRangeBulean,changeValue} = mySlices.actions
 export default mySlices.reducer

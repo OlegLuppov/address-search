@@ -1,0 +1,35 @@
+$border: 1px solid #D7D7D7;
+$paddingBottom: 12px;
+
+
+.addresses-wrapper {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 8px rgba(2, 0, 97, 0.25);
+    border: 1px solid #D7D7D7;
+    border-radius: 10px;
+    padding: 24px;
+
+    .addresses-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: calc(18px + (26 - 18) * (100vw - 400px) / (1440 - 400));
+        font-weight: 700;
+        line-height: 31.69px;
+        border-bottom: $border;
+        padding-bottom: $paddingBottom;
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    .address {
+        font-family: 'Montserrat', sans-serif;
+        font-size: calc(18px + (20 - 18) * (100vw - 400px) / (1440 - 400));
+        font-weight: 500;
+        line-height: 24.38px;
+        list-style-type: none;
+        border-bottom: $border;
+        padding-bottom: $paddingBottom;
+    }
+}

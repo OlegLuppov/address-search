@@ -28,7 +28,6 @@ $paddingLeft: 51px;
     box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
     padding-top: 21px;
     padding-bottom: 168px;
-    padding-right: 61px;
 
     .nav-title {
         padding-left: 29px;
@@ -88,6 +87,10 @@ $paddingLeft: 51px;
             margin-top: -9px;
         }
 
+        .router {
+            text-decoration: none;
+        }
+
 
         li:hover {
             background-color: rgba(34, 60, 80, 0.2);
@@ -101,11 +104,8 @@ $paddingLeft: 51px;
 
         li {
             padding-left: 29px;
+            padding-right: 61px;
             cursor: pointer;
-
-            .router {
-                text-decoration: none;
-            }
 
             .ico-home {
                 @include size32x32;

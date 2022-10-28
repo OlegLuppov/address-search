@@ -28,8 +28,8 @@ export const MenuNav: React.FC = () => {
     <div className="nav-wrapper">
       <h2 className="nav-title">Menu</h2>
       <ul className="list-nav">
-        <li>
-          <NavLink to={'/'} className="router">
+        <NavLink to={'/'} className="router">
+          <li>
             <button className="home" type="button">
               {' '}
               <div
@@ -40,20 +40,22 @@ export const MenuNav: React.FC = () => {
               ></div>
               <span>Главная</span>
             </button>
-          </NavLink>
-        </li>
-        <li>
-          <button type="button">
-            {' '}
-            <div
-              className="ico-search"
-              style={{
-                backgroundImage: `url(${icoSearch})`,
-              }}
-            ></div>
-            <span>Поиск адресов</span>
-          </button>
-        </li>
+          </li>
+        </NavLink>
+        <NavLink to={'/address'} className="router">
+          <li>
+            <button type="button">
+              {' '}
+              <div
+                className="ico-search"
+                style={{
+                  backgroundImage: `url(${icoSearch})`,
+                }}
+              ></div>
+              <span>Поиск адресов</span>
+            </button>
+          </li>
+        </NavLink>
         <li>
           <button type="button">
             {' '}
