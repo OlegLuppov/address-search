@@ -7,11 +7,7 @@ export const Search: React.FC = () => {
   const addresses = useAppSelector((state) => state.wrench.addresses)
   return (
     <div className="search-wrapper">
-      <InputField
-        onClick={(e): void => {
-          e.preventDefault()
-        }}
-      ></InputField>
+      <InputField></InputField>
       <ListAddresses adresses={addresses}></ListAddresses>
     </div>
   )

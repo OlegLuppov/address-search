@@ -1,24 +1,17 @@
 import { createSlice,PayloadAction } from '@reduxjs/toolkit'
-import {IAddress} from '../components/ListAddresses'
+import {IAddress,Iinitialstate} from  '../interfaces/interfaces'
 
-interface Iinitialstate {
-  toggleSettings:boolean,
-  toggleListAddresses:boolean
-  settings: string,
-  settingsProfile:string,
-  settingsManagement:string
-  value:string
-  addresses:IAddress[]
-}
+
 
 const initialState:Iinitialstate = {
   toggleSettings:true,
   toggleListAddresses:true,
+  listAddresses:'addresses-wrapper',
   settings: 'settings',
   settingsProfile:'settings-profile',
   settingsManagement:'financial-management',
   value:'',
-  addresses:[]
+  addresses:[],
 
 }
 
@@ -49,9 +42,28 @@ const mySlices = createSlice({
     },
     changeValue:(state,action:PayloadAction<string>) => {
       state.value = action.payload
+    },
+    getAddresses: (state,action:PayloadAction<string>) => {
+      if(action.payload.length >= 3) {
+        state.toggleListAddresses = !state.toggleListAddresses
+      } 
+      if (!state.toggleListAddresses && action.payload.length) {
+        state.listAddresses = 'addresses-wrapper-active'
+      
+    
+      // state.query = state.value
+    
+      } 
+      if (action.payload.length < 3) {
+        state.listAddresses = 'addresses-wrapper'
+        state.addresses = []
+      }
+    },
+    changeAddresses:(state,action:PayloadAction<IAddress[]>) => {
+      state.addresses = action.payload
     }
  
   },
 })
-export const {togglerRangeBulean,changeValue} = mySlices.actions
+export const {togglerRangeBulean,changeValue,getAddresses,changeAddresses} = mySlices.actions
 export default mySlices.reducer

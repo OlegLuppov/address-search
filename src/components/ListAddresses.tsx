@@ -1,17 +1,12 @@
 import React from 'react'
-
-export interface IAddress {
-  id: number
-  address: string
-}
-
-export interface IListAddresses {
-  adresses: IAddress[]
-}
+import { useAppSelector, useAppDispatch } from '../store/hooks'
+import { IListAddresses } from '../interfaces/interfaces'
 
 export const ListAddresses: React.FC<IListAddresses> = ({ adresses }) => {
+  const classAddresses = useAppSelector((state) => state.wrench.listAddresses)
+
   return (
-    <div className="addresses-wrapper">
+    <div className={classAddresses}>
       <h2 className="addresses-title">Адреса</h2>
       <ul>
         {adresses.map((address) => {
