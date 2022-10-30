@@ -1,6 +1,6 @@
 import './scss/Reset.scss'
 import './scss/Fonts.scss'
-import './scss/container.scss'
+import './scss/Container.scss'
 import './scss/App.scss'
 import './scss/Menu.scss'
 import './scss/Header.scss'
