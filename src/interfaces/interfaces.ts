@@ -11,6 +11,8 @@ export interface IListAddresses {
  export interface Iinitialstate {
     toggleSettings:boolean,
     toggleListAddresses:boolean
+    toggleNavMenu:boolean
+    navMenu:string
     listAddresses:string
     settings: string,
     settingsProfile:string,

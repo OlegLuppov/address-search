@@ -1,4 +1,7 @@
 .search-wrapper {
+    width: 93%;
+    height: 800px;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     gap: 32px;

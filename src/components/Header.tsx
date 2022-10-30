@@ -1,13 +1,21 @@
 import React from 'react'
-import { HandySvg } from 'handy-svg'
+import { useAppDispatch } from '../store/hooks'
+import { togglerNavMenu } from '../store/slice'
 import iconKey from '../assets/img/icon/key.svg'
 import iconInitialization from '../assets/img/icon/initialization.svg'
 
 export const Header: React.FC = () => {
+  const dispatch = useAppDispatch()
+
+  const navMenuHandler = () => {
+    dispatch(togglerNavMenu(true))
+  }
+
   return (
     <header>
       <div className="logo-wrapper">
         <div
+          onClick={navMenuHandler}
           className="logo-item"
           style={{
             backgroundImage: `url(${iconKey})`,

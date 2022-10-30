@@ -6,6 +6,8 @@ import {IAddress,Iinitialstate} from  '../interfaces/interfaces'
 const initialState:Iinitialstate = {
   toggleSettings:true,
   toggleListAddresses:true,
+  toggleNavMenu:true,
+  navMenu:'nav-wrapper ',
   listAddresses:'addresses-wrapper',
   settings: 'settings',
   settingsProfile:'settings-profile',
@@ -40,6 +42,20 @@ const mySlices = createSlice({
       state.settingsManagement = 'financial-management'
      }
     },
+    togglerNavMenu:(state,action:PayloadAction<boolean>) => {
+     if(state.toggleNavMenu === action.payload) {
+       state.toggleNavMenu = !state.toggleNavMenu
+     } 
+     else {
+       state.toggleNavMenu = true
+      } 
+      if(!state.toggleNavMenu) {
+       state.navMenu = 'nav-wrapper-active'
+     } 
+     else {
+      state.navMenu = 'nav-wrapper'
+     }
+    },
     changeValue:(state,action:PayloadAction<string>) => {
       state.value = action.payload
     },
@@ -48,11 +64,7 @@ const mySlices = createSlice({
         state.toggleListAddresses = !state.toggleListAddresses
       } 
       if (!state.toggleListAddresses && action.payload.length) {
-        state.listAddresses = 'addresses-wrapper-active'
-      
-    
-      // state.query = state.value
-    
+        state.listAddresses = 'addresses-wrapper-active'    
       } 
       if (action.payload.length < 3) {
         state.listAddresses = 'addresses-wrapper'
@@ -65,5 +77,5 @@ const mySlices = createSlice({
  
   },
 })
-export const {togglerRangeBulean,changeValue,getAddresses,changeAddresses} = mySlices.actions
+export const {togglerRangeBulean,changeValue,getAddresses,changeAddresses,togglerNavMenu} = mySlices.actions
 export default mySlices.reducer

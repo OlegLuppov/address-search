@@ -18,6 +18,7 @@ export const MenuNav: React.FC = () => {
   const settings = useAppSelector((state) => state.wrench.settings)
   const settingsProfile = useAppSelector((state) => state.wrench.settingsProfile)
   const settingsManagement = useAppSelector((state) => state.wrench.settingsManagement)
+  const navMenu = useAppSelector((state) => state.wrench.navMenu)
   const dispatch = useAppDispatch()
 
   const changeClassNameHandler = () => {
@@ -25,7 +26,7 @@ export const MenuNav: React.FC = () => {
   }
 
   return (
-    <div className="nav-wrapper">
+    <div className={navMenu}>
       <h2 className="nav-title">Menu</h2>
       <ul className="list-nav">
         <NavLink to={'/'} className="router">

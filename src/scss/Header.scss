@@ -36,6 +36,11 @@ header {
       background-repeat: no-repeat;
     }
 
+    .logo-item:hover {
+      background-color: rgba(34, 60, 80, 0.2);
+
+    }
+
     .title-item {
       font-size: $fontSize;
 
