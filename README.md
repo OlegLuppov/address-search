@@ -1,6 +1,5 @@
 address-search
 =============================
-[Link demo app](https://OlegLuppov.github.io/address-search/)
 
 [Link task](https://docs.google.com/document/d/1ryAvOtbLiYNBzXGRS6seg8B3PtUA9YIz0TrFlWk7abs/edit?usp=sharing)
 
