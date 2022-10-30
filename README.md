@@ -1,5 +1,4 @@
-# address-search
-
+address-search
 =============================
 [Link demo app](https://OlegLuppov.github.io/address-search/)
 
