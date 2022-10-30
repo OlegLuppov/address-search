@@ -1,10 +1,9 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, redirect } from 'react-router-dom'
-import { Header } from './Header'
-import { MenuNav } from './Menu'
-import { News } from '../pages/HomePage'
-import { Search } from './Search'
-import path from 'path'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { MenuNav } from '../menu/Menu'
+import { News } from '../../pages/news/News'
+import { Header } from '../header/Header'
+import { Search } from '../search/Search'
 
 export const App: React.FC = () => {
   return (

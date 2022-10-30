@@ -18,9 +18,8 @@ $paddingLeft: 51px;
 }
 
 
-
-
 .nav-wrapper {
+    top: 80px;
     overflow: auto;
     width: 25%;
     height: 800px;
@@ -34,8 +33,6 @@ $paddingLeft: 51px;
     padding-top: 21px;
     padding-bottom: 168px;
     transition: 1s all;
-
-
 
     .nav-title {
         padding-left: 29px;
@@ -187,8 +184,6 @@ $paddingLeft: 51px;
 
 }
 
-
-
 .nav-wrapper-active {
     position: fixed;
     left: 0;
@@ -205,7 +200,6 @@ $paddingLeft: 51px;
     padding-top: 21px;
     padding-bottom: 168px;
     background-color: white;
-    z-index: 100;
     transition: 1s all;
 
 
@@ -358,9 +352,24 @@ $paddingLeft: 51px;
 @media (max-width:768px) {
     .nav-wrapper {
         position: fixed;
+        top: 149px;
         left: -300px;
+        gap: 23px;
+
+        .list-nav {
+            gap: 10px;
+        }
     }
+}
 
+@media (max-width:463px) {
+    .nav-wrapper-active {
+        top: 149px;
+        gap: 23px;
 
+        .list-nav {
+            gap: 10px;
+        }
+    }
 
 }

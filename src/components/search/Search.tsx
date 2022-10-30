@@ -1,7 +1,7 @@
 import React from 'react'
-import { useAppSelector, useAppDispatch } from '../store/hooks'
-import { InputField } from './InputField'
-import { ListAddresses } from './ListAddresses'
+import { useAppSelector } from '../../store/hooks'
+import { InputField } from '../input_field/InputField'
+import { ListAddresses } from '../list_addresses/ListAddresses'
 
 export const Search: React.FC = () => {
   const addresses = useAppSelector((state) => state.wrench.addresses)

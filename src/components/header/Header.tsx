@@ -1,8 +1,8 @@
 import React from 'react'
-import { useAppDispatch } from '../store/hooks'
-import { togglerNavMenu } from '../store/slice'
-import iconKey from '../assets/img/icon/key.svg'
-import iconInitialization from '../assets/img/icon/initialization.svg'
+import { useAppDispatch } from '../../store/hooks'
+import { togglerNavMenu } from '../../store/slice'
+import iconKey from '../../assets/img/icon/key.svg'
+import iconInitialization from '../../assets/img/icon/initialization.svg'
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch()

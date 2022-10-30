@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAppSelector, useAppDispatch } from '../store/hooks'
-import { IListAddresses } from '../interfaces/interfaces'
+import { useAppSelector } from '../../store/hooks'
+import { IListAddresses } from '../../interfaces/interfaces'
 
 export const ListAddresses: React.FC<IListAddresses> = ({ adresses }) => {
   const classAddresses = useAppSelector((state) => state.wrench.listAddresses)

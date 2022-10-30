@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from 'axios'
-import { useAppSelector, useAppDispatch } from '../store/hooks'
-import { changeValue, getAddresses, changeAddresses } from '../store/slice'
-import searchButton from '../assets/img/icon/search-wite.svg'
-import { IAddress } from '../interfaces/interfaces'
-import { URL_API_BASEPATH, TOKEN } from '../URLS/urls'
+import { useAppSelector, useAppDispatch } from '../../store/hooks'
+import { changeValue, getAddresses, changeAddresses } from '../../store/slice'
+import searchButton from '../../assets/img/icon/search-wite.svg'
+import { IAddress } from '../../interfaces/interfaces'
+import { URL_API_BASEPATH, TOKEN } from '../../constants/api_urls'
 
 export const InputField: React.FC = () => {
   const value = useAppSelector((state) => state.wrench.value)
