@@ -61,4 +61,11 @@ header {
       font-size: $fontSize;
     }
   }
+
+}
+
+@media (max-width:460px) {
+  header {
+    justify-content: center;
+  }
 }

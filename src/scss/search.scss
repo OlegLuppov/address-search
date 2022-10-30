@@ -8,4 +8,11 @@
     font-family: 'Montserrat', sans-serif;
     padding: 10px 32px 32px;
 
+
+}
+
+@media (max-width:460px) {
+    .search-wrapper {
+        padding-top: 80px;
+    }
 }
