@@ -7,7 +7,7 @@ import './scss/header.scss'
 import './scss/news.scss'
 import './scss/search.scss'
 import './scss/input_field.scss'
-import './scss/listAddresses.scss'
+import './scss/list_addresses.scss'
 
 import { createRoot } from 'react-dom/client'
 import store from './store/store'
