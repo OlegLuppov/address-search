@@ -18,7 +18,7 @@ Front-end:
 1. Clone this repository.
 2. [`npm install`](https://docs.npmjs.com/cli/install)
 3. Build app `npm run build` in command line
-4. Run app `npm run build` in command line
+4. Run app `npm run start` in command line
 5. port 3000 (will open on its own)
 
 ## P.S.
