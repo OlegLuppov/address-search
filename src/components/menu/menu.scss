@@ -1,6 +1,7 @@
 $display: flex;
 $background: rgba(255, 255, 255, 0.05);
 $paddingLeft: 51px;
+$settingsPosition: relative;
 
 @mixin font {
     font-size: calc(16px + (20 - 16) * (100vw - 400px) / (1440 - 400));
@@ -17,79 +18,138 @@ $paddingLeft: 51px;
     background-size: contain;
 }
 
+@mixin buttonTextField {
+    width: 100%;
+    display: $display;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border: none;
+    background-color: $background;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
 
-.nav-wrapper {
-    top: 80px;
+@mixin navWrapper {
     overflow: auto;
-    width: 25%;
     height: 800px;
     display: $display;
     flex-direction: column;
     gap: 37.78px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    background-color: $background;
+    background-color: white;
     box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
     padding-top: 21px;
     padding-bottom: 168px;
-    transition: 1s all;
+    transition: 0.3s all;
+}
+
+@mixin listNav {
+    display: $display;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@mixin settingsAfter {
+    content: '\25BC';
+    position: absolute;
+    top: 8%;
+    left: 86%;
+    transform: rotate(360deg);
+}
+
+@mixin settingsActiveAfter {
+    content: '\25BC';
+    position: absolute;
+    top: 8%;
+    left: 86%;
+    transform: rotate(180deg);
+}
+
+@mixin settingsProfile {
+    display: none;
+    padding-left: $paddingLeft;
+    margin-top: -9px;
+}
+
+@mixin settingsProfileActive {
+    display: flex;
+    padding-left: $paddingLeft;
+    margin-top: -9px;
+}
+
+@mixin financialMenagement {
+    display: none;
+    padding-left: $paddingLeft;
+    margin-top: -9px;
+}
+
+@mixin financialManagementActive {
+    display: flex;
+    padding-left: $paddingLeft;
+    margin-top: -9px;
+}
+
+@mixin li {
+    padding-left: 29px;
+    padding-right: 61px;
+    cursor: pointer;
+}
+
+@mixin liActive {
+    -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+}
+
+
+.nav-wrapper {
+    top: 80px;
+    width: 25%;
+    @include navWrapper;
 
     .nav-title {
         padding-left: 29px;
     }
 
     .list-nav {
-        display: $display;
-        flex-direction: column;
-        gap: 40px;
+        @include listNav;
 
         .settings {
-            position: relative;
+            position: $settingsPosition;
         }
 
         .settings-active {
-            position: relative;
+            position: $settingsPosition;
         }
 
 
         .settings::after {
-            content: '\25BC';
-            position: absolute;
-            top: 8%;
-            left: 86%;
-            transform: rotate(360deg);
+            @include settingsAfter;
         }
 
         .settings-active::after {
-            content: '\25BC';
-            position: absolute;
-            top: 8%;
-            left: 86%;
-            transform: rotate(180deg);
+            @include settingsActiveAfter;
         }
 
         .settings-profile {
-            display: none;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include settingsProfile;
         }
 
         .financial-management {
-            display: none;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include financialMenagement;
         }
 
         .settings-profile-active {
-            display: flex;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include settingsProfileActive;
         }
 
         .financial-management-active {
-            display: flex;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include financialManagementActive;
         }
 
         .router {
@@ -102,15 +162,11 @@ $paddingLeft: 51px;
         }
 
         li:active {
-            -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-            -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-            box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+            @include liActive;
         }
 
         li {
-            padding-left: 29px;
-            padding-right: 61px;
-            cursor: pointer;
+            @include li;
 
             .ico-home {
                 @include size32x32;
@@ -159,25 +215,9 @@ $paddingLeft: 51px;
             }
 
             button {
-                width: 100%;
-                display: $display;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 16px;
-                border: none;
-                background-color: $background;
-                font-family: 'Montserrat', sans-serif;
-                font-style: normal;
-                font-weight: 600;
                 @include font;
-                cursor: pointer;
-                padding: 0;
-
+                @include buttonTextField;
             }
-
-
-
-
 
         }
     }
@@ -188,19 +228,7 @@ $paddingLeft: 51px;
     position: fixed;
     left: 0;
     width: 300px;
-    overflow: auto;
-    height: 800px;
-    display: $display;
-    flex-direction: column;
-    gap: 37.78px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    background-color: $background;
-    box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
-    padding-top: 21px;
-    padding-bottom: 168px;
-    background-color: white;
-    transition: 1s all;
+    @include navWrapper;
 
 
 
@@ -209,57 +237,39 @@ $paddingLeft: 51px;
     }
 
     .list-nav {
-        display: $display;
-        flex-direction: column;
-        gap: 40px;
+        @include listNav;
 
         .settings {
-            position: relative;
+            position: $settingsPosition;
         }
 
         .settings-active {
-            position: relative;
+            position: $settingsPosition;
         }
 
 
         .settings::after {
-            content: '\25BC';
-            position: absolute;
-            top: 8%;
-            left: 86%;
-            transform: rotate(360deg);
+            @include settingsAfter;
         }
 
         .settings-active::after {
-            content: '\25BC';
-            position: absolute;
-            top: 8%;
-            left: 86%;
-            transform: rotate(180deg);
+            @include settingsActiveAfter;
         }
 
         .settings-profile {
-            display: none;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include settingsProfile;
         }
 
         .financial-management {
-            display: none;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include financialMenagement;
         }
 
         .settings-profile-active {
-            display: flex;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include settingsProfileActive;
         }
 
         .financial-management-active {
-            display: flex;
-            padding-left: $paddingLeft;
-            margin-top: -9px;
+            @include financialManagementActive;
         }
 
         .router {
@@ -272,15 +282,11 @@ $paddingLeft: 51px;
         }
 
         li:active {
-            -webkit-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-            -moz-box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-            box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+            @include liActive;
         }
 
         li {
-            padding-left: 29px;
-            padding-right: 61px;
-            cursor: pointer;
+            @include li;
 
             .ico-home {
                 @include size32x32;
@@ -329,20 +335,8 @@ $paddingLeft: 51px;
             }
 
             button {
-                width: 100%;
-                display: $display;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 16px;
-                border: none;
-                background-color: $background;
-                font-family: 'Montserrat', sans-serif;
-                font-style: normal;
-                font-weight: 600;
                 @include font;
-                cursor: pointer;
-                padding: 0;
-
+                @include buttonTextField;
             }
 
         }
@@ -362,7 +356,7 @@ $paddingLeft: 51px;
     }
 }
 
-@media (max-width:463px) {
+@media (max-width:667px) {
     .nav-wrapper-active {
         top: 149px;
         gap: 23px;
@@ -370,6 +364,13 @@ $paddingLeft: 51px;
 
         .list-nav {
             gap: 10px;
+        }
+    }
+
+    @media (max-height:375px) {
+        .nav-wrapper-active {
+            top: 0;
+            height: 400px;
         }
     }
 
