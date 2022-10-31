@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useAppSelector, useAppDispatch } from '../../store/hooks'
-import { changeValue, getAddresses, changeAddresses } from '../../store/slice'
+import { useAppDispatch } from '../../store/hooks'
+import { getAddresses, changeAddresses } from '../../store/slice'
 import searchButton from '../../assets/img/icon/search-wite.svg'
 import { IAddress } from '../../interfaces/interfaces'
 import { URL_API_BASEPATH, TOKEN } from '../../constants/api_urls'
 
 export const InputField: React.FC = () => {
-  const value = useAppSelector((state) => state.wrench.value)
+  const [value, stateValue] = useState('')
   const dispatch = useAppDispatch()
   let arrAddresses: IAddress[] = []
 
   const changeValueHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(changeValue(e.target.value))
+    stateValue(e.target.value)
   }
 
   const requestHendler = async (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -57,6 +57,12 @@ export const InputField: React.FC = () => {
       return
     }
   }
+
+  useEffect(() => {
+    if (value.length === 0) {
+      dispatch(getAddresses(value))
+    }
+  }, [value])
 
   return (
     <div className="input-wrapper">

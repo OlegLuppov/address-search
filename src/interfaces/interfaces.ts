@@ -17,6 +17,5 @@ export interface IListAddresses {
     settings: string,
     settingsProfile:string,
     settingsManagement:string
-    value:string
     addresses:IAddress[]
   }

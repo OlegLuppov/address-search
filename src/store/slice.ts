@@ -12,7 +12,6 @@ const initialState:Iinitialstate = {
   settings: 'settings',
   settingsProfile:'settings-profile',
   settingsManagement:'financial-management',
-  value:'',
   addresses:[],
 
 }
@@ -56,9 +55,7 @@ const mySlices = createSlice({
       state.navMenu = 'nav-wrapper'
      }
     },
-    changeValue:(state,action:PayloadAction<string>) => {
-      state.value = action.payload
-    },
+   
     getAddresses: (state,action:PayloadAction<string>) => {
       if(action.payload.length >= 3) {
         state.toggleListAddresses = !state.toggleListAddresses
@@ -66,7 +63,7 @@ const mySlices = createSlice({
       if (!state.toggleListAddresses && action.payload.length) {
         state.listAddresses = 'addresses-wrapper-active'    
       } 
-      if (action.payload.length < 3) {
+      if (action.payload.length < 3 ) {
         state.listAddresses = 'addresses-wrapper'
         state.addresses = []
       }
@@ -77,5 +74,5 @@ const mySlices = createSlice({
  
   },
 })
-export const {togglerRangeBulean,changeValue,getAddresses,changeAddresses,togglerNavMenu} = mySlices.actions
+export const {togglerRangeBulean,getAddresses,changeAddresses,togglerNavMenu} = mySlices.actions
 export default mySlices.reducer
