@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { togglerRangeBulean } from '../../store/slice'
+import { togglerSettings, togglerNavMenu } from '../../store/slice'
 import { NavLink } from 'react-router-dom'
 
 import icoHome from '../../assets/img/icon/home.svg'
@@ -21,8 +21,13 @@ export const MenuNav: React.FC = () => {
   const navMenu = useAppSelector((state) => state.wrench.navMenu)
   const dispatch = useAppDispatch()
 
-  const changeClassNameHandler = () => {
-    dispatch(togglerRangeBulean(true))
+  const changeSettingsHandler = () => {
+    dispatch(togglerSettings(true))
+  }
+
+  const removeMenuHandler = () => {
+    dispatch(togglerNavMenu(false))
+    dispatch(togglerSettings(false))
   }
 
   return (
@@ -31,7 +36,7 @@ export const MenuNav: React.FC = () => {
       <ul className="list-nav">
         <NavLink to={'/'} className="router">
           <li>
-            <button className="home" type="button">
+            <button onClick={removeMenuHandler} className="home" type="button">
               {' '}
               <div
                 className="ico-home"
@@ -45,7 +50,7 @@ export const MenuNav: React.FC = () => {
         </NavLink>
         <NavLink to={'/address'} className="router">
           <li>
-            <button type="button">
+            <button onClick={removeMenuHandler} type="button">
               {' '}
               <div
                 className="ico-search"
@@ -105,7 +110,7 @@ export const MenuNav: React.FC = () => {
             <span>Виджеты</span>
           </button>
         </li>
-        <li className={settings} onClick={changeClassNameHandler}>
+        <li className={settings} onClick={changeSettingsHandler}>
           <button type="button">
             {' '}
             <div

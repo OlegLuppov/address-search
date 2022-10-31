@@ -24,7 +24,7 @@ const mySlices = createSlice({
 
   reducers: {
    
-    togglerRangeBulean:(state,action:PayloadAction<boolean>) => {
+    togglerSettings:(state,action:PayloadAction<boolean>) => {
      if(state.toggleSettings === action.payload) {
 
        state.toggleSettings = !state.toggleSettings
@@ -74,5 +74,5 @@ const mySlices = createSlice({
  
   },
 })
-export const {togglerRangeBulean,getAddresses,changeAddresses,togglerNavMenu} = mySlices.actions
+export const {togglerSettings,getAddresses,changeAddresses,togglerNavMenu} = mySlices.actions
 export default mySlices.reducer
